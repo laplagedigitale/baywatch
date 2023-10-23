@@ -28,13 +28,14 @@ spec:
       volumes:
         - name: config
           projected:
-            - secret:
-                secretName: tunnel-credentials
-              items:
-                - key: credentials.json
-                  path: credentials.json
-            - configMap:
-                name: cloudflared
-              items:
-                - key: config.yaml
-                  path: config.yaml
+            sources:
+              - secret:
+                  name: tunnel-credentials
+                  items:
+                    - key: credentials.json
+                      path: credentials.json
+              - configMap:
+                  name: cloudflared
+                  items:
+                    - key: config.yaml
+                      path: config.yaml
