@@ -3,5 +3,6 @@ kind: Kustomization
 
 resources:
 - ingress-nginx/
+- cloudflared/
 - flux-system/
 - whoami/
