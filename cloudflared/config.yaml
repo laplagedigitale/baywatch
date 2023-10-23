@@ -1,5 +1,5 @@
 tunnel: ingress-nginx
-credentials-file: /etc/cloudflared/creds/credentials.json
+credentials-file: /etc/cloudflared/credentials.json
 metrics: 0.0.0.0:2000
 no-autoupdate: true
 ingress:
