@@ -10,4 +10,7 @@ patches:
 - path: service-patch.yaml
   target:
     kind: Service
+- path: ingress-class-patch.yaml
+  target:
+    kind: IngressClass
   
