@@ -13,4 +13,7 @@ patches:
 - path: ingress-class-patch.yaml
   target:
     kind: IngressClass
+- path: configmap.yaml
+  target:
+    kind: ConfigMap
   
