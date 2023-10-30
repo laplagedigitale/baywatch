@@ -6,3 +6,4 @@ resources:
 - cloudflared/
 - flux-system/
 - whoami/
+- logto/
