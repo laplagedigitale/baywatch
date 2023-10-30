@@ -9,3 +9,8 @@ commonLabels:
 resources:
   - namespace.yaml
   - deployment.yaml
+
+secretGenerator:
+  - name: db-url
+    envs: 
+      - .env
