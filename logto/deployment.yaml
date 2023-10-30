@@ -11,7 +11,7 @@ spec:
           image: ghcr.io/logto-io/logto
           env:
             - name: PORT
-              value: 3001
+              value: "3001"
           ports:
             - containerPort: 3001
               name: http
