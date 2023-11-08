@@ -3,15 +3,15 @@ kind: HelmRelease
 metadata:
   name: authentik
 spec:
-  interval: 5m
+  interval: 1m
   chart:
     spec:
-      chart: authentik/authentik
-      version: "4.0.x"
+      chart: authentik
+      version: "2023.10.2"
       sourceRef:
         kind: HelmRepository
         name: authentik
-        namespace: flux-system
+        namespace: authentik
       interval: 1m
   values:
     authentik:
@@ -20,8 +20,23 @@ spec:
         port: 31418
         name: baywatch_do_4908
         user: baywatch_do_4908
+      redis:
+        host: redis.authentik.svc.cluster.local.
+    ingress:
+      ingressClassName: nginx
+      enabled: true
+      hosts:
+        - host: id.laplagedigitale.fr
+          paths:
+            - path: "/"
+              pathType: Prefix
+
   valuesFrom:
     - kind: Secret
-      name: db-password
+      name: env
       valuesKey: DATABASE_PASSWORD
       targetPath: authentik.postgresql.password
+    - kind: Secret
+      name: env
+      valuesKey: SECRET_KEY
+      targetPath: authentik.secret_key
