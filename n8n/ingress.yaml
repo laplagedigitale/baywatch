@@ -4,7 +4,7 @@ metadata:
   name: n8n
 spec:
   rules:
-  - host: n8n.laplagedigitale.fr
+  - host: automations.laplagedigitale.fr
     http:
       paths:
       - path: /
