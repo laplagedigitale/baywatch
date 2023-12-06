@@ -13,10 +13,11 @@ configMapGenerator:
     files:
       - ca.pem
 
-secretGenerator:
-  - name: env
-    envs:
-      - .env
+# TODO
+#secretGenerator:
+#  - name: env
+#    envs:
+#      - .env
 
 configurations:
   - kustomizeconfig.yaml
