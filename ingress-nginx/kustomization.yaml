@@ -4,16 +4,30 @@ kind: Kustomization
 namespace: ingress-nginx
 
 resources:
-- https://github.com/kubernetes/ingress-nginx//deploy/static/provider/baremetal/?ref=controller-v1.9.3
+  - https://github.com/kubernetes/ingress-nginx//deploy/static/provider/baremetal/?ref=controller-v1.9.3
 
 patches:
-- path: service-patch.yaml
-  target:
-    kind: Service
-- path: ingress-class-patch.yaml
-  target:
-    kind: IngressClass
-- path: configmap.yaml
-  target:
-    kind: ConfigMap
-  
+  # Makes the service a ClusterIP
+  - path: service-patch.yaml
+    target:
+      kind: Service
+
+  # Sets the ingress class as the default one
+  - path: ingress-class-patch.yaml
+    target:
+      kind: IngressClass
+
+  - path: configmap.yaml
+    target:
+      kind: ConfigMap
+
+  # Publish the cloudflare tunnel address as the status address
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --update-status
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --publish-status-address=1c0b1c56-67cd-4dcb-a60a-6cdb89562e51.cfargotunnel.com
+    target:
+      kind: Deployment

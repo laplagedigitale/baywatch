@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ingress-nginx/
+  - external-dns/
   - cloudflared/
   - flux-system/
   - local-storage/
