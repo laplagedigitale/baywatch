@@ -40,8 +40,8 @@ spec:
         hostname: tables.laplagedigitale.fr
 
     config:
-      publicBackendUrl: https://tables.laplagedigitale.fr/
-      publicFrontendUrl: https://tables.laplagedigitale.fr/
+      publicBackendUrl: https://tables.laplagedigitale.fr
+      publicFrontendUrl: https://tables.laplagedigitale.fr
     postgresql:
       enabled: true
     redis:
