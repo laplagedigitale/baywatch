@@ -15,21 +15,23 @@ spec:
       version: 1.27.0
   interval: 1m
   values:
-    celery:
-      image:
-        tag: "1.22.2"
-    wsgi:
-      image:
-        tag: "1.22.2"
     backend:
-      image:
-        tag: "1.22.2"
+      asgi:
+        image:
+          tag: "1.22.2"
+      wsgi:
+        image:
+          tag: "1.22.2"
+      celery:
+        image:
+          tag: "1.22.2"
       ingress:
         enabled: true
         hostname: tables.laplagedigitale.fr
         paths:
           asgiPath: /ws/
           wsgiPath: /api/
+
     frontend:
       image:
         tag: "1.22.2"
