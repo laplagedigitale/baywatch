@@ -15,20 +15,31 @@ spec:
       version: 1.27.0
   interval: 1m
   values:
+    celery:
+      image:
+        tag: "1.22.2"
+    wsgi:
+      image:
+        tag: "1.22.2"
     backend:
+      image:
+        tag: "1.22.2"
       ingress:
         enabled: true
         hostname: tables.laplagedigitale.fr
         paths:
           asgiPath: /ws/
           wsgiPath: /api/
-    config:
-      publicBackendUrl: https://tables.laplagedigitale.fr/
-      publicFrontendUrl: https://tables.laplagedigitale.fr/
     frontend:
+      image:
+        tag: "1.22.2"
       ingress:
         enabled: true
         hostname: tables.laplagedigitale.fr
+
+    config:
+      publicBackendUrl: https://tables.laplagedigitale.fr/
+      publicFrontendUrl: https://tables.laplagedigitale.fr/
     postgresql:
       enabled: true
     redis:
