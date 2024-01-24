@@ -1,0 +1,9 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: christianknell
+spec:
+  interval: 1m
+  provider: generic
+  timeout: 60s
+  url: https://christianknell.github.io/helm-charts
