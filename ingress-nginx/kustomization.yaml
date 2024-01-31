@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: ingress-nginx
 
 resources:
-  - https://github.com/kubernetes/ingress-nginx//deploy/static/provider/baremetal/?ref=controller-v1.9.3
+  - https://github.com/kubernetes/ingress-nginx//deploy/static/provider/baremetal/?ref=controller-v1.9.6
 
 patches:
   # Makes the service a ClusterIP
