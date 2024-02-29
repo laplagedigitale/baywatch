@@ -7,20 +7,19 @@ spec:
   chart:
     spec:
       chart: authentik
-      version: "2024.2.1"
+      version: "2023.10.7"
       sourceRef:
         kind: HelmRepository
         name: authentik
         namespace: authentik
       interval: 1m
   values:
-    global:
-      env:
-        AUTHENTIK_EMAIL__HOST: smtp-relay.brevo.com
-        AUTHENTIK_EMAIL__PORT: "587"
-        AUTHENTIK_EMAIL__USERNAME: "baywatch@chobert.fr"
-        AUTHENTIK_EMAIL__USE_TLS: "true"
-        AUTHENTIK_EMAIL__FROM: "noreply@laplagedigitale.fr"
+    env:
+      AUTHENTIK_EMAIL__HOST: smtp-relay.brevo.com
+      AUTHENTIK_EMAIL__PORT: "587"
+      AUTHENTIK_EMAIL__USERNAME: "baywatch@chobert.fr"
+      AUTHENTIK_EMAIL__USE_TLS: "true"
+      AUTHENTIK_EMAIL__FROM: "noreply@laplagedigitale.fr"
     authentik:
       postgresql:
         host: baywatch-do-4908.postgresql.a.osc-fr1.scalingo-dbs.com
