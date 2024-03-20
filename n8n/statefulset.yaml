@@ -30,7 +30,7 @@ spec:
               value: "5678"
             - name: N8N_EDITOR_BASE_URL
               value: "https://automations.laplagedigitale.fr/"
-          image: n8nio/n8n:1.25.1
+          image: n8nio/n8n:1.32.2
           name: n8n
           ports:
             - name: http
