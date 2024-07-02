@@ -44,14 +44,15 @@ spec:
         host: smtp-relay.brevo.com
         port: 587
         username: baywatch@chobert.fr
-    ingress:
-      ingressClassName: nginx
-      enabled: true
-      hosts:
-        - host: id.laplagedigitale.fr
-          paths:
-            - path: "/"
-              pathType: Prefix
+    server:
+      ingress:
+        ingressClassName: nginx
+        enabled: true
+        hosts:
+          - host: id.laplagedigitale.fr
+            paths:
+              - path: "/"
+                pathType: Prefix
 
   valuesFrom:
     - kind: Secret
