@@ -16,11 +16,21 @@ spec:
   values:
     global:
       env:
-        AUTHENTIK_EMAIL__HOST: smtp-relay.brevo.com
-        AUTHENTIK_EMAIL__PORT: "587"
-        AUTHENTIK_EMAIL__USERNAME: "baywatch@chobert.fr"
-        AUTHENTIK_EMAIL__USE_TLS: "true"
-        AUTHENTIK_EMAIL__FROM: "noreply@laplagedigitale.fr"
+        - name: AUTHENTIK_EMAIL__HOST
+          value: smtp-relay.brevo.com
+        - name: AUTHENTIK_EMAIL__PORT
+          value: "587"
+        - name: AUTHENTIK_EMAIL__USERNAME
+          value: "baywatch@chobert.fr"
+        - name: AUTHENTIK_EMAIL__USE_TLS
+          value: "true"
+        - name: AUTHENTIK_EMAIL__FROM
+          value: "noreply@laplagedigitale.fr"
+        - name: AUTHENTIK_EMAIL__PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: env
+              key: BREVO_SMTP_PASSWORD
     authentik:
       postgresql:
         host: baywatch-do-4908.postgresql.a.osc-fr1.scalingo-dbs.com
@@ -56,7 +66,3 @@ spec:
       name: env # TODO
       valuesKey: EMAIL_PASSWORD
       targetPath: authentik.email.password
-    - kind: Secret
-      name: env # TODO
-      valuesKey: BREVO_SMTP_PASSWORD
-      targetPath: global.env.AUTHENTIK_EMAIL__PASSWORD
